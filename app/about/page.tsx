@@ -4,8 +4,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from 'lucide-react'
+import { useLanguage } from "@/components/language-provider"
+import { aboutTranslations } from "@/lib/translations"
 
 export default function AboutPage() {
+  const { language } = useLanguage()
+  const t = aboutTranslations[language]
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -14,7 +19,7 @@ export default function AboutPage() {
           <Link href="/">
             <Button variant="ghost" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
-              Back to Home
+              {t.backToHome}
             </Button>
           </Link>
         </div>
@@ -27,184 +32,184 @@ export default function AboutPage() {
           <Image src="/educapp-logo.svg" alt="EducApp Logo" width={64} height={64} className="w-16 h-16" />
           <div>
             <h1 className="text-5xl font-bold text-foreground">
-              EducApp<span className="text-primary">.us</span>
+              {t.title}<span className="text-primary">.us</span>
             </h1>
-            <p className="text-xl text-muted-foreground">Faith-Driven AI Tutor</p>
+            <p className="text-xl text-muted-foreground">{t.subtitle}</p>
           </div>
         </div>
 
         {/* About Content */}
         <article className="prose prose-lg dark:prose-invert max-w-none">
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">About EducApp</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">{t.aboutTitle}</h2>
             <p className="text-lg leading-relaxed text-foreground">
-              EducApp is the leading Faith-Driven AI tutoring platform for Education.
+              {t.aboutIntro}
             </p>
             <ul className="list-disc pl-6 space-y-2 text-foreground">
-              <li>Featuring biblical worldview integration across all academic subjects</li>
-              <li>Launched from a vision to serve families with technology that honors God and empowers parents</li>
-              <li>Our mission is to make elite Christian education accessible to every family through AI-powered adaptive tutoring</li>
+              <li>{t.aboutFeature1}</li>
+              <li>{t.aboutFeature2}</li>
+              <li>{t.aboutFeature3}</li>
             </ul>
             <blockquote className="border-l-4 border-primary pl-4 italic my-6 text-muted-foreground">
-              "EducApp is what families have been praying for—a tutor that knows both Scripture and Math."
+              {t.quote}
             </blockquote>
           </section>
 
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">The Challenge</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">{t.challengeTitle}</h2>
             <p className="text-lg leading-relaxed text-foreground">
-              <strong>Information overload is an extreme challenge in education.</strong>
+              <strong>{t.challengeSubtitle}</strong>
             </p>
             <p className="text-foreground">
-              Families face an overwhelming task: teaching multiple children across various grade levels and subjects, often while managing work and household responsibilities. Many lack confidence in their ability to provide the depth and breadth of Christian education they desire for their children. The burden of curriculum planning, lesson delivery, assessment, and biblical integration can make faithful families question whether they're truly equipped to educate their children—even when their hearts are fully committed to this calling.
+              {t.challengeText1}
             </p>
             <p className="text-foreground">
-              To serve these families, we built EducApp to provide on-demand, biblically-grounded tutoring that adapts to each student's learning pace, reinforces the students' curricula, and maintains uncompromising biblical authority across all subjects.
+              {t.challengeText2}
             </p>
           </section>
 
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Mission → Vision → Values</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">{t.missionVisionTitle}</h2>
 
-            <h3 className="text-2xl font-bold mb-3 text-foreground">Mission</h3>
+            <h3 className="text-2xl font-bold mb-3 text-foreground">{t.missionTitle}</h3>
             <p className="text-foreground">
-              To equip families with AI-powered Christian education that honors God, supports parents, and develops children who can think clearly, speak persuasively, and live faithfully.
+              {t.missionText}
             </p>
 
-            <h3 className="text-2xl font-bold mb-3 mt-6 text-foreground">Vision</h3>
+            <h3 className="text-2xl font-bold mb-3 mt-6 text-foreground">{t.visionTitle}</h3>
             <p className="text-foreground">
-              To become the trusted educational partner for every Christian family, providing adaptive learning that integrates biblical truth across all subjects while respecting parents as the primary educators under God's authority.
+              {t.visionText}
             </p>
 
-            <h3 className="text-2xl font-bold mb-3 mt-6 text-foreground">Values</h3>
+            <h3 className="text-2xl font-bold mb-3 mt-6 text-foreground">{t.valuesTitle}</h3>
             <ul className="list-disc pl-6 space-y-2 text-foreground">
-              <li><strong>Biblical Authority:</strong> Scripture is true, inerrant, and the foundation of all learning</li>
-              <li><strong>Parental Empowerment:</strong> Parents, not institutions, are ordained by God to educate their children</li>
-              <li><strong>Excellence & Truth:</strong> We pursue the highest academic standards rooted in the classical tradition</li>
-              <li><strong>Servant Leadership:</strong> We serve families humbly, recognizing education as discipleship</li>
-              <li><strong>Accessible Quality:</strong> Elite education should not require elite resources</li>
+              <li><strong>{t.value1}</strong></li>
+              <li><strong>{t.value2}</strong></li>
+              <li><strong>{t.value3}</strong></li>
+              <li><strong>{t.value4}</strong></li>
+              <li><strong>{t.value5}</strong></li>
             </ul>
           </section>
 
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Team</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">{t.teamTitle}</h2>
 
-            <h3 className="text-2xl font-bold mb-3 text-foreground">Co-Founders</h3>
+            <h3 className="text-2xl font-bold mb-3 text-foreground">{t.coFoundersTitle}</h3>
 
             <div className="mb-6">
-              <h4 className="text-xl font-bold text-primary">A.G. "Guy" Fava, M.S., CCC-SLP</h4>
-              <p className="italic text-muted-foreground mb-2">Faith-Driven Entrepreneur, Coach, Speech-Language Pathologist, and Educator</p>
+              <h4 className="text-xl font-bold text-primary">{t.guyName}</h4>
+              <p className="italic text-muted-foreground mb-2">{t.guyTitle}</p>
               <ul className="list-disc pl-6 space-y-1 text-foreground">
-                <li>Master of Science in Communication Sciences</li>
-                <li>Certified and Licensed Speech-Language Pathologist</li>
-                <li>Wellbeing Coach</li>
-                <li>Homeschool Dad</li>
-                <li>AI Python and Machine Learning training (NVIDIA)</li>
-                <li>Researcher and Editorial Board Member of Scientific Journals</li>
-                <li>Published author on faith-driven entrepreneurship and innovation</li>
-                <li>Multilingual (English, Italian, Portuguese, Spanish)</li>
+                <li>{t.guyItem1}</li>
+                <li>{t.guyItem2}</li>
+                <li>{t.guyItem3}</li>
+                <li>{t.guyItem4}</li>
+                <li>{t.guyItem5}</li>
+                <li>{t.guyItem6}</li>
+                <li>{t.guyItem7}</li>
+                <li>{t.guyItem8}</li>
               </ul>
             </div>
 
             <div className="mb-6">
-              <h4 className="text-xl font-bold text-primary">D.M.C. "Dida" Fava, Ph.D.</h4>
-              <p className="italic text-muted-foreground mb-2">Faith-Driven Entrepreneur, Doctor in Innovation, and Educator</p>
+              <h4 className="text-xl font-bold text-primary">{t.didaName}</h4>
+              <p className="italic text-muted-foreground mb-2">{t.didaTitle}</p>
               <ul className="list-disc pl-6 space-y-1 text-foreground">
-                <li>Design Thinking in Innovation</li>
-                <li>Classical Christian educator and mother</li>
-                <li>Co-founder and strategic partner</li>
-                <li>Expertise in educational innovation and design</li>
-                <li>Passionate advocate for biblical worldview education</li>
+                <li>{t.didaItem1}</li>
+                <li>{t.didaItem2}</li>
+                <li>{t.didaItem3}</li>
+                <li>{t.didaItem4}</li>
+                <li>{t.didaItem5}</li>
               </ul>
             </div>
           </section>
 
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Why EducApp Exists</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">{t.whyExistsTitle}</h2>
 
-            <h3 className="text-2xl font-bold mb-3 text-foreground">The Problem: Educating</h3>
+            <h3 className="text-2xl font-bold mb-3 text-foreground">{t.problemTitle}</h3>
             <ul className="list-disc pl-6 space-y-2 text-foreground">
-              <li>Low quality education in many public systems</li>
-              <li>Lack of parental control over content and worldview</li>
-              <li>Lack of character and soft skills development</li>
-              <li>Parental lack of confidence in teaching ability</li>
-              <li>Overwhelming time demands to teach multiple subjects and grade levels</li>
-              <li>Limited access to quality Christian curriculum resources</li>
-              <li>Need for organizational systems and routines</li>
-              <li>Isolation and lack of support</li>
+              <li>{t.problem1}</li>
+              <li>{t.problem2}</li>
+              <li>{t.problem3}</li>
+              <li>{t.problem4}</li>
+              <li>{t.problem5}</li>
+              <li>{t.problem6}</li>
+              <li>{t.problem7}</li>
+              <li>{t.problem8}</li>
             </ul>
 
-            <h3 className="text-2xl font-bold mb-3 mt-6 text-foreground">The Solution: EducApp</h3>
+            <h3 className="text-2xl font-bold mb-3 mt-6 text-foreground">{t.solutionTitle}</h3>
             <p className="text-foreground">
-              EducApp is a Cloud-Based Faith-Driven AI Tutoring Platform that breaks the distance between parents and elite education, making teaching and learning easier, more affordable, and more effective.
+              {t.solutionText}
             </p>
             <ul className="list-none space-y-2 mt-4 text-foreground">
-              <li><strong>Practical:</strong> AI tutoring available 24/7 from home</li>
-              <li><strong>Simple:</strong> Easy-to-use platform for parents and students</li>
-              <li><strong>Economical:</strong> All-inclusive education support at accessible pricing</li>
-              <li><strong>Faithful:</strong> Uncompromising biblical worldview integration</li>
+              <li><strong>{t.solutionFeature1}</strong></li>
+              <li><strong>{t.solutionFeature2}</strong></li>
+              <li><strong>{t.solutionFeature3}</strong></li>
+              <li><strong>{t.solutionFeature4}</strong></li>
             </ul>
           </section>
 
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Our Foundation</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">{t.foundationTitle}</h2>
 
-            <h3 className="text-2xl font-bold mb-3 text-foreground">Biblical Worldview</h3>
-            <p className="text-foreground">Our convictions are embedded in every line of code:</p>
+            <h3 className="text-2xl font-bold mb-3 text-foreground">{t.biblicalWorldviewTitle}</h3>
+            <p className="text-foreground">{t.biblicalWorldviewIntro}</p>
             <ul className="list-disc pl-6 space-y-2 text-foreground">
-              <li>The Bible is the inerrant, inspired, authoritative Word of God</li>
-              <li>Jesus Christ is THE Way, Truth, and Life (John 14:6)</li>
-              <li>God created humans male and female in His image (Genesis 1:27)</li>
-              <li>The creation account is true and historical</li>
-              <li>Marriage is between one man and one woman</li>
-              <li>Eternal life comes only through Jesus Christ (John 11:25, Romans 10:9)</li>
-              <li>Parents are primary educators under God's authority</li>
-              <li>Education is discipleship—teaching children to know God and pursue truth, goodness, and beauty</li>
+              <li>{t.conviction1}</li>
+              <li>{t.conviction2}</li>
+              <li>{t.conviction3}</li>
+              <li>{t.conviction4}</li>
+              <li>{t.conviction5}</li>
+              <li>{t.conviction6}</li>
+              <li>{t.conviction7}</li>
+              <li>{t.conviction8}</li>
             </ul>
 
-            <h3 className="text-2xl font-bold mb-3 mt-6 text-foreground">Classical Education Philosophy</h3>
+            <h3 className="text-2xl font-bold mb-3 mt-6 text-foreground">{t.classicalEdTitle}</h3>
             <p className="text-foreground">
-              We reject modern educational relativism and embrace the time-tested classical approach:
+              {t.classicalEdIntro}
             </p>
             <blockquote className="border-l-4 border-primary pl-4 italic my-6 text-muted-foreground">
-              "God gave them knowledge and skill in all learning and wisdom: and Daniel had understanding in all visions and dreams... And in all matters of wisdom and understanding, that the king inquired of them, he found them ten times better than all the magicians and astrologers that were in all his realm."
+              {t.danielQuote}
               <br />
-              — Daniel 1:17-20
+              {t.danielRef}
             </blockquote>
 
             <div className="grid md:grid-cols-2 gap-6 mt-6">
               <div>
-                <h4 className="font-bold text-lg mb-2 text-foreground">Classical Education:</h4>
+                <h4 className="font-bold text-lg mb-2 text-foreground">{t.classicalTitle}</h4>
                 <ul className="list-disc pl-6 space-y-1 text-foreground">
-                  <li>Moved by values centered on "why?"</li>
-                  <li>Recognizes responsibility</li>
-                  <li>Knowledge as an intimate pursuit</li>
-                  <li>Emphasizes thinking, contemplation, rest</li>
-                  <li>Freedom to pursue truth</li>
+                  <li>{t.classical1}</li>
+                  <li>{t.classical2}</li>
+                  <li>{t.classical3}</li>
+                  <li>{t.classical4}</li>
+                  <li>{t.classical5}</li>
                 </ul>
               </div>
               <div>
-                <h4 className="font-bold text-lg mb-2 text-foreground">vs. Modern Education:</h4>
+                <h4 className="font-bold text-lg mb-2 text-foreground">{t.modernTitle}</h4>
                 <ul className="list-disc pl-6 space-y-1 text-foreground">
-                  <li>Intentionally value-neutral, centered on "how?"</li>
-                  <li>Refuses responsibility</li>
-                  <li>Knowledge as superficial data collection</li>
-                  <li>Emphasis on testing and performance</li>
-                  <li>Restriction and conformity</li>
+                  <li>{t.modern1}</li>
+                  <li>{t.modern2}</li>
+                  <li>{t.modern3}</li>
+                  <li>{t.modern4}</li>
+                  <li>{t.modern5}</li>
                 </ul>
               </div>
             </div>
           </section>
 
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Supported By Faith & Excellence</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">{t.supportedTitle}</h2>
             <p className="text-foreground">
-              EducApp represents the convergence of cutting-edge AI technology, classical educational philosophy, and unwavering biblical conviction. We're building something that doesn't yet exist: a truly Faith-Driven AI tutor that serves parents, honors God, and educates children in truth.
+              {t.supportedText}
             </p>
             <blockquote className="border-l-4 border-primary pl-4 italic my-6 text-muted-foreground">
-              "Train up a child in the way he should go: and when he is old, he will not depart from it."
+              {t.proverbsQuote}
               <br />
-              — Proverbs 22:6
+              {t.proverbsRef}
             </blockquote>
           </section>
         </article>
@@ -212,20 +217,20 @@ export default function AboutPage() {
         {/* Footer */}
         <footer className="border-t border-border pt-8 mt-12">
           <div className="text-center space-y-4">
-            <p className="text-sm text-muted-foreground">© EducApp 2025. All rights reserved.</p>
+            <p className="text-sm text-muted-foreground">{t.copyright}</p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <Link href="/terms" className="text-primary hover:underline">
-                Terms of Use
+                {t.termsOfUse}
               </Link>
               <Link href="/privacy" className="text-primary hover:underline">
-                Privacy Policy
+                {t.privacyPolicy}
               </Link>
               <Link href="/advertising" className="text-primary hover:underline">
-                Advertising Policy
+                {t.advertisingPolicy}
               </Link>
             </div>
             <div className="text-sm text-muted-foreground">
-              Contact:{" "}
+              {t.contact}{" "}
               <a href="mailto:educapp@hitalk.us" className="text-primary hover:underline">
                 educapp@hitalk.us
               </a>
