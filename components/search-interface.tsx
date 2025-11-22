@@ -16,10 +16,11 @@ export function SearchInterface() {
   const [query, setQuery] = useState("")
   const { t } = useLanguage()
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle search query submission here
-  }
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault()
+  // Open EducApp in new tab
+  window.open('https://guyhitalk-educapp-backend-app-lipvfm.streamlit.app', '_blank')
+}
 
   const examplePrompts = [
     { icon: BookOpen, label: t("explainBiblical"), value: t("explainBiblicalPrompt") },
@@ -103,7 +104,7 @@ export function SearchInterface() {
               <Button
                 key={index}
                 variant="outline"
-                onClick={() => setQuery(prompt.value)}
+                onClick={() => window.open('https://guyhitalk-educapp-backend-app-lipvfm.streamlit.app', '_blank')}
                 className="flex items-center gap-2 h-auto py-3 px-4 rounded-lg border-border hover:bg-accent hover:text-accent-foreground transition-colors"
               >
                 <Icon className="h-4 w-4" />
