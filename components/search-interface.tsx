@@ -46,7 +46,7 @@ const handleSubmit = (e: React.FormEvent) => {
           </DropdownMenuContent>
         </DropdownMenu>
         <LanguageSwitcher />
-        <Link href="/login">
+        <a href="https://guyhitalk-educapp-backend-app-lipvfm.streamlit.app" target="_blank" rel="noopener noreferrer">
           <Button variant="outline" className="rounded-lg border-border hover:bg-accent bg-transparent">
             {t("login")}
           </Button>
