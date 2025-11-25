@@ -19,7 +19,7 @@ export function SearchInterface() {
 const handleSubmit = (e: React.FormEvent) => {
   e.preventDefault()
   // Open EducApp in new tab
-  window.open('https://guyhitalk-educapp-backend-app-lipvfm.streamlit.app', '_blank')
+  window.open('https://educapp.streamlit.app', '_blank')
 }
 
   const examplePrompts = [
@@ -104,7 +104,7 @@ const handleSubmit = (e: React.FormEvent) => {
               <Button
                 key={index}
                 variant="outline"
-                onClick={() => window.open('https://guyhitalk-educapp-backend-app-lipvfm.streamlit.app', '_blank')}
+                onClick={() => window.open('https://educapp.streamlit.app', '_blank')}
                 className="flex items-center gap-2 h-auto py-3 px-4 rounded-lg border-border hover:bg-accent hover:text-accent-foreground transition-colors"
               >
                 <Icon className="h-4 w-4" />
