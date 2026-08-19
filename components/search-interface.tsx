@@ -1,11 +1,7 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Search, BookOpen, GraduationCap, MessageSquare, Menu } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
 import { useLanguage } from "@/components/language-provider"
@@ -13,24 +9,20 @@ import { LanguageSwitcher } from "@/components/language-switcher"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 export function SearchInterface() {
-  const [query, setQuery] = useState("")
   const { t } = useLanguage()
-
-const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault()
-  // Open EducApp in new tab
-  window.open('https://educapp.streamlit.app', '_blank')
-}
-
-  const examplePrompts = [
-    { icon: BookOpen, label: t("explainBiblical"), value: t("explainBiblicalPrompt") },
-    { icon: GraduationCap, label: t("studyHelp"), value: t("studyHelpPrompt") },
-    { icon: MessageSquare, label: t("askQuestion"), value: t("askQuestionPrompt") },
-  ]
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background px-4 py-12">
       <div className="absolute top-6 right-6 flex items-center gap-2">
+        <a href="https://verse.educapp.us" target="_blank" rel="noopener noreferrer">
+          <Button
+            variant="outline"
+            className="h-9 rounded-lg px-3 border-primary/40 text-primary hover:bg-primary/10 hover:text-primary text-sm font-medium whitespace-nowrap bg-transparent"
+          >
+            <span className="sm:hidden">Verse</span>
+            <span className="hidden sm:inline">Verse of the Day</span>
+          </Button>
+        </a>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon" className="rounded-lg border-border hover:bg-accent bg-transparent">
@@ -46,11 +38,6 @@ const handleSubmit = (e: React.FormEvent) => {
           </DropdownMenuContent>
         </DropdownMenu>
         <LanguageSwitcher />
-        <Link href="/login">
-          <Button variant="outline" className="rounded-lg border-border hover:bg-accent bg-transparent">
-            {t("login")}
-          </Button>
-        </Link>
       </div>
 
       {/* Logo/Title */}
@@ -73,46 +60,13 @@ const handleSubmit = (e: React.FormEvent) => {
         <p className="text-lg md:text-xl text-muted-foreground font-light">{t("subtitle")}</p>
       </div>
 
-      {/* Search Bar */}
-      <div className="w-full max-w-3xl mb-8">
-        <form onSubmit={handleSubmit} className="relative">
-          <div className="relative flex items-center">
-            <Input
-              type="text"
-              placeholder={t("searchPlaceholder")}
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              className="w-full h-14 md:h-16 pl-6 pr-14 text-base md:text-lg rounded-xl border-2 border-border bg-card focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
-            />
-            <Button
-              type="submit"
-              size="icon"
-              className="absolute right-2 h-10 w-10 md:h-12 md:w-12 rounded-lg bg-primary hover:bg-primary/90 transition-colors"
-            >
-              <Search className="h-5 w-5 md:h-6 md:w-6" />
-            </Button>
-          </div>
-        </form>
-      </div>
-
-      {/* Example Prompts */}
-      <div className="w-full max-w-3xl">
-        <div className="flex flex-wrap gap-3 justify-center">
-          {examplePrompts.map((prompt, index) => {
-            const Icon = prompt.icon
-            return (
-              <Button
-                key={index}
-                variant="outline"
-                onClick={() => window.open('https://educapp.streamlit.app', '_blank')}
-                className="flex items-center gap-2 h-auto py-3 px-4 rounded-lg border-border hover:bg-accent hover:text-accent-foreground transition-colors"
-              >
-                <Icon className="h-4 w-4" />
-                <span className="text-sm">{prompt.label}</span>
-              </Button>
-            )
-          })}
-        </div>
+      {/* Log In Button */}
+      <div className="w-full max-w-sm flex justify-center">
+        <a href="https://educapp.streamlit.app" target="_blank" rel="noopener noreferrer" className="w-full">
+          <Button className="w-full h-14 md:h-16 text-base md:text-lg rounded-xl bg-primary hover:bg-primary/90 transition-colors">
+            {t("login")}
+          </Button>
+        </a>
       </div>
 
       {/* Footer hint */}
